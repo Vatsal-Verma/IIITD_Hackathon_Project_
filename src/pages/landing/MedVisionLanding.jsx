@@ -1,7 +1,11 @@
 import React from 'react';
 import './MedVisionLanding.css';
+import { useNavigate } from 'react-router';
+import vid from './video.mp4';
 
 const MedVisionLanding = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="medvision-landing">
       {/* Hero Section */}
@@ -11,21 +15,25 @@ const MedVisionLanding = () => {
           <p className="tagline">Innovative medical care powered by cutting-edge technology</p>
           <div className="cta-buttons">
             <button className="primary-btn">Book Appointment</button>
-            <button className="secondary-btn">Virtual Tour</button>
+            <button className="secondary-btn" onClick={() => navigate('/analyse')}>
+              Let's Analyse
+            </button>
           </div>
         </div>
         <div className="hero-model">
-          {/* Embedded 3D model using model-viewer (web component) */}
           <div className="model-container">
-            <model-viewer
-              alt="Hospital 3D Model"
-              src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-              ar
-              ar-modes="webxr scene-viewer quick-look"
-              environment-image="neutral"
-              auto-rotate
-              camera-controls
-            ></model-viewer>
+            <video
+              src={vid}
+              controls
+              loop
+              playsInline
+              muted
+              autoPlay
+              aria-label="MedVision introductory video"
+              poster="https://via.placeholder.com/900x450?text=MedVision+Video+Placeholder"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </section>
@@ -58,7 +66,11 @@ const MedVisionLanding = () => {
       </section>
 
       {/* Stats Section */}
+      <center>
+        <h2>Our Stats</h2>
+      </center>
       <section className="stats-section">
+        
         <div className="stat-item">
           <h3>250+</h3>
           <p>Medical Professionals</p>
@@ -76,53 +88,6 @@ const MedVisionLanding = () => {
           <p>Patient Satisfaction</p>
         </div>
       </section>
-
-      {/* About Section */}
-      {/* <section className="about-section">
-        <div className="about-content">
-          <h2>About MedVision</h2>
-          <p>
-            MedVision is a leading healthcare provider committed to delivering exceptional medical services through innovation and compassion. 
-            Our state-of-the-art facility combines advanced technology with personalized care to ensure the best outcomes for our patients.
-          </p>
-          <p>
-            Founded in 2010, we've grown to become a trusted name in healthcare, serving thousands of patients annually with our comprehensive 
-            range of medical services.
-          </p>
-          <button className="primary-btn">Learn More</button>
-        </div>
-        <div className="about-image">
-          <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Medical team" />
-        </div>
-      </section> */}
-
-      {/* Contact Section */}
-      {/* <section className="contact-section">
-        <div className="contact-info">
-          <h2>Contact Us</h2>
-          <div className="contact-item">
-            <span className="contact-icon">📍</span>
-            <p>123 Medical Drive, Health City, HC 12345</p>
-          </div>
-          <div className="contact-item">
-            <span className="contact-icon">📞</span>
-            <p>(123) 456-7890</p>
-          </div>
-          <div className="contact-item">
-            <span className="contact-icon">⏱️</span>
-            <p>Open 24/7 for emergency services</p>
-          </div>
-        </div>
-        <div className="contact-form">
-          <h3>Send Us a Message</h3>
-          <form>
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit" className="primary-btn">Send Message</button>
-          </form>
-        </div>
-      </section> */}
     </div>
   );
 };
