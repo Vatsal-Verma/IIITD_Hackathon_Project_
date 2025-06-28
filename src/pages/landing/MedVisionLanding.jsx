@@ -78,7 +78,7 @@ const MedVisionLanding = () => {
       </section>
 
       {/* About Section */}
-      <section className="about-section">
+      {/* <section className="about-section">
         <div className="about-content">
           <h2>About MedVision</h2>
           <p>
@@ -94,10 +94,10 @@ const MedVisionLanding = () => {
         <div className="about-image">
           <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Medical team" />
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
-      <section className="contact-section">
+      {/* <section className="contact-section">
         <div className="contact-info">
           <h2>Contact Us</h2>
           <div className="contact-item">
@@ -122,7 +122,7 @@ const MedVisionLanding = () => {
             <button type="submit" className="primary-btn">Send Message</button>
           </form>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
