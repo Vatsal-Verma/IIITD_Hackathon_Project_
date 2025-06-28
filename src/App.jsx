@@ -11,6 +11,7 @@ import AdminDashboard from './pages/dashboard/AdminDashboard'
 import Login from './pages/dashboard/Login';
 import Ask from './pages/dashboard/AskGemini'
 import Simulator from './pages/dashboard/Simulator';
+import Home from './pages/landing/Home';
 
 
 
@@ -20,8 +21,8 @@ function App() {
   <>
     <Header></Header>
     <Routes>
-
-      <Route path='/' element={<Dashboard/>}></Route>
+       <Route path='/' element={<Home></Home>}></Route>
+      <Route path='/dashboard' element={<Dashboard/>}></Route>
       <Route path='/employee' element={<PostUser/>}></Route>
       <Route path='/doctor' element={<AdminDashboard/>}></Route>
       <Route path='/employee/:id' element={<UpdateUser/>}></Route>

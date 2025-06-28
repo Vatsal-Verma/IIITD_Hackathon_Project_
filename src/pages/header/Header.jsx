@@ -38,6 +38,8 @@ function Header(){
         <li><Link to="/employee" className="nav-link">Post Detail</Link></li>
         <li><Link to="/AskGemini" className="nav-link">Doctor Ai</Link></li>
         <li><Link to="/Simulator" className="nav-link">Simulate</Link></li>
+        <li><Link to="/dashboard" className="nav-link">Dashboard</Link></li>
+
       </ul>
     </nav>
 
