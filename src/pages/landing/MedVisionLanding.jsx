@@ -66,7 +66,11 @@ const MedVisionLanding = () => {
       </section>
 
       {/* Stats Section */}
+      <center>
+        <h2>Our Stats</h2>
+      </center>
       <section className="stats-section">
+        
         <div className="stat-item">
           <h3>250+</h3>
           <p>Medical Professionals</p>
