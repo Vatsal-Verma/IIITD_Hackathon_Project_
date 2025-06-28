@@ -1,9 +1,11 @@
-import React from 'react'
+import Features from '../landing/Features';
+import MedVisionLanding from './MedVisionLanding';
 
 const Home = () => {
   return (
     <div>
-      home page
+      <MedVisionLanding />
+      <Features />
     </div>
   )
 }
