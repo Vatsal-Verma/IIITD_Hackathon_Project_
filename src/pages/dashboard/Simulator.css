@@ -48,15 +48,247 @@
 }
 
 .exercise {
-	font-size: 18px;
-	margin: 0.5rem 0;
-	color: #ccc;
+	font-size: 16px;
+	margin: 0.8rem 0;
+	color: #e0e0e0;
 	width: 100%;
-	text-align: center;
+	text-align: left;
+	line-height: 1.6;
+	padding-left: 0;
+	text-indent: -1.2em;
+	padding-left: 1.2em;
+}
+
+.exercise:first-child {
+	margin-top: 1rem;
+}
+
+.exercise:last-child {
+	margin-bottom: 1rem;
 }
 
 .empty-msg {
 	margin-top: 2rem;
 	color: #aaa;
 	font-size: 18px;
+}
+
+.loading-state {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-align: center;
+}
+
+.loading-text {
+	margin-top: 1rem;
+	color: #888;
+	font-size: 16px;
+}
+
+/* AI Prompt Box Styles */
+.ai-prompt-box {
+	width: 90%;
+	max-width: 800px;
+	margin: 20px auto;
+	background-color: #1f1f1f;
+	border: 1px solid #333;
+	border-radius: 12px;
+	padding: 16px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(10px);
+}
+
+/* AI Response Display within Prompt Box */
+.ai-response-display {
+	max-height: 200px;
+	overflow-y: auto;
+	margin-bottom: 16px;
+	padding: 12px;
+	background-color: #1a1a1a;
+	border-radius: 8px;
+	border: 1px solid #333;
+}
+
+.response-message {
+	margin-bottom: 12px;
+	display: flex;
+	flex-direction: column;
+}
+
+.response-message.user {
+	align-items: flex-end;
+}
+
+.response-message.assistant {
+	align-items: flex-start;
+}
+
+.response-content {
+	max-width: 85%;
+	padding: 10px 14px;
+	border-radius: 16px;
+	font-size: 14px;
+	line-height: 1.4;
+	word-wrap: break-word;
+}
+
+.response-message.user .response-content {
+	background-color: #007bff;
+	color: white;
+	border-bottom-right-radius: 4px;
+}
+
+.response-message.assistant .response-content {
+	background-color: #333;
+	color: white;
+	border-bottom-left-radius: 4px;
+}
+
+.response-timestamp {
+	font-size: 10px;
+	color: #888;
+	margin-top: 4px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+/* Typing Indicator */
+.typing-indicator {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 8px 0;
+}
+
+.typing-indicator span {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #888;
+	animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+	animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+	animation-delay: -0.16s;
+}
+
+@keyframes typing {
+	0%, 80%, 100% {
+		transform: scale(0.8);
+		opacity: 0.5;
+	}
+	40% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.prompt-form {
+	display: flex;
+	align-items: center;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+}
+
+.prompt-input {
+	flex: 1;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: white;
+	font-size: 16px;
+	padding: 8px 12px;
+	margin-right: 8px;
+	line-height: 1.5;
+}
+
+.prompt-input::placeholder {
+	color: #888;
+}
+
+.prompt-input:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Muscle pill styling */
+.prompt-input:not(:placeholder-shown) {
+	/* This will help with pill visibility */
+}
+
+/* You can also add custom styling for pills if needed */
+.muscle-pill {
+	display: inline-block;
+	background-color: #007bff;
+	color: white;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 14px;
+	margin: 2px;
+	font-weight: 500;
+}
+
+.upload-btn, .send-btn {
+	background: transparent;
+	border: none;
+	color: #888;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 6px;
+	transition: all 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.upload-btn:hover, .send-btn:hover {
+	background-color: #333;
+	color: white;
+}
+
+.upload-btn:disabled, .send-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.upload-btn {
+	margin-right: 8px;
+}
+
+.send-btn {
+	background-color: #007bff;
+	color: white;
+}
+
+.send-btn:hover:not(:disabled) {
+	background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+	.ai-prompt-box {
+		width: 95%;
+		margin: 15px auto;
+		padding: 12px;
+	}
+	
+	.ai-response-display {
+		max-height: 150px;
+	}
+	
+	.prompt-form {
+		padding: 0;
+	}
+	
+	.prompt-input {
+		font-size: 14px;
+	}
 }
