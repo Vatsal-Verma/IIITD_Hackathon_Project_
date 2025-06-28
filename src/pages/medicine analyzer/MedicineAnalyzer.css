@@ -1,42 +1,83 @@
 .medicine-analyzer {
   max-width: 1200px;
   margin: 5rem auto;
-  padding: 1rem;
-  background-color: rgba(10, 10, 15, 0.95); /* Deep black for stronger contrast */
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(15px);
-  color: #ffffff; /* White text for readability */
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  border: 1px solid #00b7eb; /* Neon blue border */
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0a0a12, #1a1a25);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  color: #e6e6e6;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border: 1px solid #00a3cc;
   position: relative;
+  overflow: hidden;
+}
+
+.medicine-analyzer::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, #00a3cc, #ff6f61);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.medicine-analyzer:hover::before {
+  opacity: 1;
 }
 
 .analyzer-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
-  color: #00b7eb; /* Neon blue for title */
+  margin-bottom: 2.5rem;
+  color: #01beed;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: fadeIn 1s ease-in-out;
 }
-.pat img{
-     position: absolute;
-     top: 0.2rem;
-     right: 0.2rem;
-    height: 100px;
-    width: 100px;
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.pat1 img{
-     position: absolute;
-     bottom:  0.2rem;
-     left: 0.2rem;
-    height: 100px;
-    width: 100px;
+
+.pat img, .pat1 img {
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #00a3cc;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.pat img {
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.pat1 img {
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
+.pat img:hover, .pat1 img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0, 163, 204, 0.6);
 }
 
 .upload-section {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  background: rgba(20, 20, 30, 0.5);
+  border-radius: 10px;
 }
 
 .upload-input {
@@ -45,148 +86,253 @@
 
 .upload-label {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: #00b7eb; /* Neon blue button */
-  color: #ffffff; /* White text for contrast */
-  border-radius: 8px;
+  padding: 0.85rem 2rem;
+  background: linear-gradient(45deg, #00a3cc, #00d4ff);
+  color: #ffffff;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-  border: 1px solid #00b7eb;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 163, 204, 0.3);
 }
 
-.upload-label:hover {
-  background-color: #0097c7; /* Darker neon blue on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 0 8px rgba(0, 183, 235, 0.5); /* Neon blue glow */
+.upload-label:hover, .upload-label:focus {
+  background: linear-gradient(45deg, #0088a9, #00b7eb);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 163, 204, 0.5);
+}
+
+.upload-label:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 163, 204, 0.3);
 }
 
 .preview-container {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .preview-image {
-  max-width: 200px;
-  max-height: 200px;
-  border-radius: 8px;
-  border: 1px solid #00b7eb; /* Neon blue border for image */
+  max-width: 220px;
+  max-height: 220px;
+  border-radius: 12px;
+  border: 2px solid #00a3cc;
+  transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+  transform: scale(1.05);
 }
 
 .loading {
   text-align: center;
   font-size: 1rem;
-  color: #00b7eb; /* Neon blue for loading text */
+  color: #ff1148;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
 }
 
 .error {
   text-align: center;
   font-size: 1rem;
-  color: #ff4d4d; /* Keep red for errors for visibility */
+  color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
 }
 
 .analysis-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  padding: 1rem;
 }
 
 .analysis-card {
-  background-color: rgba(20, 20, 30, 0.85); /* Slightly lighter black for cards */
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid #00b7eb; /* Neon blue border for cards */
+  background: rgba(20, 20, 30, 0.9);
+  padding: 1.75rem;
+  border-radius: 12px;
+  border: 1px solid #00a3cc;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .analysis-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 10px rgba(0, 183, 235, 0.5); /* Neon blue glow on hover */
+  box-shadow: 0 0 12px rgba(0, 163, 204, 0.6);
 }
 
 .analysis-card h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: #00b7eb; /* Neon blue for card titles */
+  color: #00a3cc;
+  font-weight: 600;
 }
 
 .analysis-card ul {
   list-style: none;
   padding: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .analysis-card li {
-  margin-bottom: 0.5rem;
-  color: #d9d9d9; /* Light gray for list items */
+  margin-bottom: 0.75rem;
+  color: #d9d9d9;
 }
 
 .analysis-card li strong {
-  color: #ffffff; /* White for emphasized text */
+  color: #ffffff;
+}
+
+.para {
+  padding: 1.5rem;
+  border: 1px solid #00a3cc;
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(20, 20, 30, 0.5);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.symptom-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #00a3cc;
+  background: rgba(255, 255, 255, 0.05);
+  color: #e6e6e6;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.symptom-input:focus {
+  outline: none;
+  border-color: #00d4ff;
+  box-shadow: 0 0 8px rgba(0, 163, 204, 0.5);
+}
+
+.recommend-btn {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #0077cc, #00a3cc);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.recommend-btn:hover, .recommend-btn:focus {
+  background: linear-gradient(45deg, #005f99, #0088a9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 163, 204, 0.5);
+}
+
+.recommend-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 163, 204, 0.3);
+}
+
+.recommend-btn:disabled {
+  background: #4a4a4a;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.recommendation-list {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+  font-size: 0.95rem;
+  color: #d9d9d9;
+}
+
+.recommendation-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 163, 204, 0.2);
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .medicine-analyzer {
     margin: 4rem 1rem;
-    padding: 0.75rem;
-    border: 1px solid #00b7eb;
+    padding: 1rem;
+    border: 1px solid #00a3cc;
   }
 
   .analyzer-title {
-    font-size: 1.5rem;
-    color: #00b7eb;
+    font-size: 1.7rem;
+    color: #00a3cc;
+  }
+
+  .upload-section {
+    padding: 0.75rem;
   }
 
   .upload-label {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    background-color: #00b7eb;
-    border: 1px solid #00b7eb;
-  }
-
-  .upload-label:hover {
-    background-color: #0097c7;
-    box-shadow: 0 0 6px rgba(0, 183, 235, 0.5);
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
   }
 
   .preview-image {
-    max-width: 150px;
-    max-height: 150px;
-    border: 1px solid #00b7eb;
+    max-width: 180px;
+    max-height: 180px;
+  }
+
+  .analysis-grid {
+    gap: 1.5rem;
   }
 
   .analysis-card {
-    padding: 1rem;
-    border: 1px solid #00b7eb;
+    padding: 1.25rem;
   }
 
   .analysis-card h2 {
-    font-size: 1.1rem;
-    color: #00b7eb;
+    font-size: 1.2rem;
   }
 
   .analysis-card ul {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
-  .analysis-card li {
-    color: #d9d9d9;
+  .para {
+    padding: 1rem;
   }
 
-  .analysis-card li strong {
-    color: #ffffff;
+  .symptom-input {
+    padding: 0.65rem;
+  }
+
+  .recommend-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
   .medicine-analyzer {
-    margin: 3.5rem 0.5rem;
-    border: 1px solid #00b7eb;
+    margin: 3rem 0.75rem;
+    border: 1px solid #00a3cc;
   }
 
   .analyzer-title {
-    font-size: 1.3rem;
-    color: #00b7eb;
+    font-size: 1.4rem;
+  }
+
+  .pat img, .pat1 img {
+    height: 80px;
+    width: 80px;
   }
 
   .analysis-grid {
@@ -194,40 +340,20 @@
   }
 
   .upload-label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.25rem;
   }
-}
-.para{
-    padding: 20px 20px;
-    border: 1px solid #00b7eb;
-    border-radius: 10px;
-    text-align: center;
-}
-.symptom-input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
 
-.recommend-btn {
-  margin-top: 8px;
-  padding: 8px 16px;
-  background-color: #0077cc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+  .preview-image {
+    max-width: 150px;
+    max-height: 150px;
+  }
 
-.recommend-btn:disabled {
-  background-color: #aaa;
-  cursor: not-allowed;
-}
+  .symptom-input {
+    font-size: 0.9rem;
+  }
 
-.recommendation-list {
-  margin-top: 10px;
-  list-style: none;
-  padding-left: 0;
+  .recommend-btn {
+    font-size: 0.9rem;
+  }
 }

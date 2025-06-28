@@ -22,13 +22,11 @@ function App() {
   <>
     <Header></Header>
     <Routes>
-<<<<<<< HEAD
-       <Route path='/' element={<Home></Home>}></Route> 
-=======
+
        <Route path='/' element={<Home></Home>}></Route>
        <Route path='/analyse' element={<MedicineAnalyzer></MedicineAnalyzer>}></Route>
 
->>>>>>> f497de5930f205e57f3977f037680a296d180f89
+
       <Route path='/dashboard' element={<Dashboard/>}></Route>
       <Route path='/employee' element={<PostUser/>}></Route>
       <Route path='/doctor' element={<AdminDashboard/>}></Route>
