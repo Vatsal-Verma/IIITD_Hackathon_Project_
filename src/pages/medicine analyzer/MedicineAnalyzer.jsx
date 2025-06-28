@@ -161,9 +161,10 @@ Respond only with pure JSON array format, no markdown.
       <div className="pat1"><img src={pat} alt="" /></div>
 
       <h1 className="analyzer-title">Medicine Analyzer</h1>
-      <p className="para">Upload a medicine image to extract its information. You can also get medicine suggestions based on your symptoms.</p>
 
       <div className="upload-section">
+              <p className="para">Upload a medicine image to extract its information. You can also get medicine suggestions based on your symptoms.</p>
+
         <input type="file" accept="image/*" onChange={handleImageUpload} className="upload-input" id="medicine-upload" />
         <label htmlFor="medicine-upload" className="upload-label">Upload Medicine Photo</label>
         {image && <div className="preview-container"><img src={image} alt="Preview" className="preview-image" /></div>}
