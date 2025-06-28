@@ -12,6 +12,7 @@ import Login from './pages/dashboard/Login';
 import Ask from './pages/dashboard/AskGemini'
 import Simulator from './pages/dashboard/Simulator';
 import Home from './pages/landing/Home';
+import MedicineAnalyzer from './pages/medicine analyzer/MedicineAnalyzer';
 
 
 
@@ -21,7 +22,13 @@ function App() {
   <>
     <Header></Header>
     <Routes>
+<<<<<<< HEAD
        <Route path='/' element={<Home></Home>}></Route> 
+=======
+       <Route path='/' element={<Home></Home>}></Route>
+       <Route path='/analyse' element={<MedicineAnalyzer></MedicineAnalyzer>}></Route>
+
+>>>>>>> f497de5930f205e57f3977f037680a296d180f89
       <Route path='/dashboard' element={<Dashboard/>}></Route>
       <Route path='/employee' element={<PostUser/>}></Route>
       <Route path='/doctor' element={<AdminDashboard/>}></Route>
