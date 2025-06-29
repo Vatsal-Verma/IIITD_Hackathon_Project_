@@ -1,0 +1,392 @@
+.medicine-analyzer-container {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	padding: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.medicine-analyzer-header {
+	background: white;
+	border-radius: 20px;
+	padding: 30px;
+	margin-bottom: 30px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	border-left: 5px solid #667eea;
+	text-align: center;
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	text-align: center;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.header-icon {
+	width: 60px;
+	height: 60px;
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	flex-shrink: 0;
+	font-size: 24px;
+}
+
+.header-text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	flex: 1;
+}
+
+.header-text h1 {
+	color: #2d3748;
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin: 0 0 8px 0;
+	letter-spacing: -0.5px;
+	text-align: center;
+	width: 100%;
+}
+
+.header-text p {
+	color: #718096;
+	font-size: 1.1rem;
+	margin: 0;
+	line-height: 1.6;
+	text-align: center;
+	width: 100%;
+}
+
+.medicine-analyzer-main {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 30px;
+}
+
+@media (max-width: 1024px) {
+	.medicine-analyzer-main {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+}
+
+.upload-section,
+.analysis-section {
+	background: white;
+	border-radius: 20px;
+	padding: 30px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.section-title h3 {
+	color: #2d3748;
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 0 0 8px 0;
+}
+
+.section-title p {
+	color: #718096;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.upload-area {
+	border: 3px dashed #e2e8f0;
+	border-radius: 15px;
+	padding: 40px 20px;
+	text-align: center;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	background: #f7fafc;
+}
+
+.upload-area:hover {
+	border-color: #667eea;
+	background: #f0f4ff;
+	transform: translateY(-2px);
+}
+
+.upload-area.dragover {
+	border-color: #667eea;
+	background: #f0f4ff;
+	transform: scale(1.02);
+}
+
+.upload-icon {
+	font-size: 3rem;
+	color: #a0aec0;
+	margin-bottom: 15px;
+	transition: color 0.3s ease;
+}
+
+.upload-area:hover .upload-icon {
+	color: #667eea;
+}
+
+.upload-text h4 {
+	color: #2d3748;
+	margin: 0 0 10px 0;
+	font-weight: 600;
+}
+
+.upload-text p {
+	color: #718096;
+	margin: 0;
+	font-size: 0.95rem;
+}
+
+.file-input {
+	display: none;
+}
+
+.upload-btn {
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	color: white;
+	border: none;
+	padding: 12px 24px;
+	border-radius: 8px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: 15px;
+}
+
+.upload-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.image-preview {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.preview-image {
+	max-width: 100%;
+	max-height: 300px;
+	border-radius: 10px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.remove-btn {
+	background: #e53e3e;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 6px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: 10px;
+}
+
+.remove-btn:hover {
+	background: #c53030;
+	transform: translateY(-1px);
+}
+
+.analyze-btn {
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	color: white;
+	border: none;
+	padding: 15px 30px;
+	border-radius: 10px;
+	font-size: 1.1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	width: 100%;
+	margin-top: 20px;
+}
+
+.analyze-btn:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.analyze-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.loading-state {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: #718096;
+}
+
+.loading-spinner {
+	width: 20px;
+	height: 20px;
+	border: 2px solid #e2e8f0;
+	border-top: 2px solid #667eea;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+.analysis-results {
+	margin-top: 20px;
+}
+
+.result-item {
+	background: #f7fafc;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 15px;
+	border-left: 4px solid #667eea;
+}
+
+.result-title {
+	font-weight: 600;
+	color: #2d3748;
+	margin-bottom: 8px;
+	font-size: 1.1rem;
+}
+
+.result-content {
+	color: #4a5568;
+	line-height: 1.6;
+}
+
+.result-content pre {
+	background: #edf2f7;
+	padding: 10px;
+	border-radius: 5px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	font-family: 'Courier New', monospace;
+	font-size: 0.9rem;
+}
+
+.result-content ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.result-content li {
+	margin-bottom: 5px;
+}
+
+.error-message {
+	background: #fff5f5;
+	border: 1px solid #fed7d7;
+	color: #c53030;
+	padding: 15px;
+	border-radius: 10px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.success-message {
+	background: #f0fff4;
+	border: 1px solid #c6f6d5;
+	color: #22543d;
+	padding: 15px;
+	border-radius: 10px;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.recommendation-section {
+	margin-top: 30px;
+	padding-top: 30px;
+	border-top: 1px solid #e2e8f0;
+}
+
+.recommendation-inputs {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.symptom-input {
+	padding: 12px 16px;
+	border: 2px solid #e2e8f0;
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: border-color 0.3s ease;
+}
+
+.symptom-input:focus {
+	outline: none;
+	border-color: #667eea;
+}
+
+.recommendation-list {
+	margin-top: 20px;
+}
+
+.best-recommend {
+	background: #f0fff4;
+	border-left-color: #48bb78;
+}
+
+.best-tag {
+	background: #48bb78;
+	color: white;
+	padding: 2px 8px;
+	border-radius: 12px;
+	font-size: 0.8rem;
+	margin-left: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.medicine-analyzer-container {
+		padding: 15px;
+	}
+	
+	.medicine-analyzer-header {
+		padding: 20px;
+	}
+	
+	.header-content {
+		flex-direction: column;
+		text-align: center;
+		gap: 15px;
+	}
+	
+	.header-text h1 {
+		font-size: 2rem;
+	}
+	
+	.upload-section,
+	.analysis-section {
+		padding: 20px;
+	}
+	
+	.upload-area {
+		padding: 30px 15px;
+	}
+	
+	.recommendation-inputs {
+		flex-direction: column;
+	}
+}

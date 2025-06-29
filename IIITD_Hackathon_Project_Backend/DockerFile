@@ -1,0 +1,28 @@
+# Stage 1: Build the application
+FROM eclipse-temurin:17-jdk-alpine AS builder
+
+WORKDIR /build
+COPY . .
+RUN apk add --no-cache maven && mvn clean package -DskipTests
+
+# Stage 2: Create the runtime image
+FROM eclipse-temurin:17-jre-alpine
+
+WORKDIR /app
+COPY --from=builder /build/target/*.jar app.jar
+
+# Add a non-root user for security
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -u 1001 -S appuser -G appgroup
+
+# Change ownership of the app directory
+RUN chown -R appuser:appgroup /app
+USER appuser
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Set JVM options for production
+ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseContainerSupport"
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

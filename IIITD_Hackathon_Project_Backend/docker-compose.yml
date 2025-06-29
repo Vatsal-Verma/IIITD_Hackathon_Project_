@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  employee-app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb+srv://vijitverma78:vfW3spAimdAOY1qp@cluster0.p6ve0.mongodb.net/myDB?retryWrites=true&w=majority&appName=Cluster0
+      - SPRING_DATA_MONGODB_DATABASE=myDB
+      - SPRING_MAIL_HOST=smtp.gmail.com
+      - SPRING_MAIL_PORT=587
+      - SPRING_MAIL_USERNAME=lastav1234@gmail.com
+      - SPRING_MAIL_PASSWORD=tgld heaf bzgx sctr
+    restart: unless-stopped
+    networks:
+      - employee-network
+
+networks:
+  employee-network:
+    driver: bridge 
