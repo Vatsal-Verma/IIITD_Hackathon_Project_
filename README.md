@@ -14,7 +14,7 @@ MedVision is an AI-powered healthcare platform designed to support people in mul
 We used modern web technologies to create the platform:
 
 - **Frontend:** HTML, CSS, JavaScript (React.js)  
-- **Backend:** Node.js with Express for APIs  
+- **Backend:** Java Spring Boot for APIs  
 - **Database:** MongoDB for storing user, appointment, and medicine data  
 - **AI Integration:** Used a natural language model to assist with doctor queries  
 - **Medicine Safety Checker:** Built a salt-allergy database and matching logic  
