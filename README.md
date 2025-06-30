@@ -1,3 +1,5 @@
+Link for presentation: https://www.canva.com/design/DAGnURhqBVo/7XrqYq42AVa2YteMl6WMZw/edit?utm_content=DAGnURhqBVo&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 # MedVision – AI-Powered Healthcare for Social Good
 
 ## 🧠 Inspiration  
